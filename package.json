@@ -1,0 +1,26 @@
+{
+  "name": "liliput-boxing-arena",
+  "version": "1.0.0",
+  "description": "2D browser boxing game in TypeScript",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build --base=/dev/crgarcia12/liliput-boxing-arena/liliput-task-3f7b5285/",
+    "build:local": "tsc && vite build --base=/",
+    "preview": "vite preview",
+    "test": "cucumber-js tests/features/ --require tests/step_definitions/steps.cjs --parallel 1",
+    "serve": "node server.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.3.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.11.0",
+    "playwright": "^1.42.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
