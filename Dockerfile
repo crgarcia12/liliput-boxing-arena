@@ -6,11 +6,22 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies (needed for build)
+RUN npm ci
 
-# Copy built assets
-COPY dist ./dist
+# Copy source files needed for build
+COPY tsconfig.json ./
+COPY vite.config.ts ./
+COPY index.html ./
+COPY src ./src
+
+# Build the application
+RUN npm run build
+
+# Remove devDependencies to reduce image size
+RUN npm prune --production
+
+# Copy server file
 COPY server.js ./
 
 # Expose port (will be overridden by Liliput's PORT env var)
